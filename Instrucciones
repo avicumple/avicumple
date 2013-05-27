@@ -1,0 +1,39 @@
+***NOTA: cuando nos referimos a [ruta_completa], nos referimos a la ruta completa hasta la carpeta "django".
+
+-Modificar RUTAS ficheros para ejecutar la aplicación en una máquina:
+ Archivo "./django/www/appcumple/appcumple/settings.py":
+  Modicar la línea de la ruta de la base de datos -> 'NAME': '/[ruta_completa]/django/www/appcumple/appcumple.db'
+
+ Archivo "./django/www/appcumple/avicumple/automatico.py":
+  Modificar la línea correspondiente a la BD -> connection = sqlite3.connect('/[ruta_completa]/django/www/appcumple/appcumple.db')
+  Modificar la línea correspondiente a la direccion del fichero de log -> fichero_log=open("/[ruta_completa]/django/www/appcumple/log_automatico.log","w")
+  
+-------------------------
+
+  Para PROBAR la aplicacion si no hay personas de cumpleaños el dia de la corrección:
+  -Probar DJANGO:
+    1.Abrir la aplicacion y logearse con el usuario de "RAUL".
+    2.Buscar "Find ALL Friends" 
+    3.Abrir la pagina "admin" de django y MODIFICAR en el apartado "friends" a mano la fecha de nacimiento del amigo "Felipe".
+    4.Pulsar el botón BIRTHDAY Friends
+    5.Pulsar sobre el usuario "Felipe"
+    6.Pulsar el botón "CONGRATULATE".
+    ***OPCIONAL para felicitar a "TODOS LOS QUE ESTAN DE CUMPLEAÑOS"
+        A partir del paso 4 hacer estos pasos:
+        5. Pulsar el botón "CONGRATULATE ALL".
+
+  -Probar script "automatico.py":
+    1.Insertar el script en el crontab -> crontab -e
+      Con la direccion /[ruta_completa]/django/www/appcumple/avicumple/automatico.py
+    2. Esperar a que funcione.
+
+    ***NOTA:
+       En el script "automatico.py" hay unas líneas comentadas que no se estan utilizando debido a que se introduce el usuario a felicitar a mano.
+       En el caso que se quiera felicitar "REALMENTE" a los que esten de cumpleaños hay que:
+        -Descomentar las líneas comentadas.
+        -Comentar las líneas marcadas como "PARTE DE PRUEBA".
+    
+
+  
+    
+   

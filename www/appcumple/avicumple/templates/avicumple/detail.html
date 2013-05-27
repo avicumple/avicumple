@@ -1,0 +1,30 @@
+	{% load url from future %}
+<h1><p style="color:white;background-color:blue;text-align:center"> Friend Detail </p></h1>
+<HR>
+{% if message_ok %}
+		<p><strong>{{ message_ok }}</strong></p>
+{% endif %}
+{% if error_message %}
+	<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+{% if f %}
+	<P>ID: {{ f.id_fb }}</p>
+	<p>USER: {{ f.name }}</p>
+	<P>BIRTHDAY DATE: {{ f.date }}</p>
+	<p>LINK PROFILE PHOTO : <a href="{{f.photo}}" target="_blank">{{f.photo}}</a></p>
+	<HR>
+	<form action="{% url 'list' %}" method="post">
+	    {% csrf_token %}
+	<button type="submit" value="back" name="back">BACK</button>
+	</form>
+    {% if congratulate_button %}
+		<form action="{% url 'detail' f.id_fb %}" method="post">
+		    {% csrf_token %}
+		<button type="submit" value="congratulate" name="congratulate">CONGRATULATE</button> 
+		</form>
+    {% endif %}
+	<HR>
+	
+{% else %}
+	An unexpected error has ocurred, please return to the previous page and TRY AGAIN.
+{% endif %}

@@ -1,0 +1,51 @@
+{% load url from future %}
+<h1><p style="color:white;background-color:blue;text-align:center">Friend List </p></h1>
+<form action="{% url 'list' %}" method="post">
+    {% csrf_token %}
+<p style="text-align:right"><button style="background-color:red;color:black;" align="right" type="submit" value="logout" name="logout">LogOUT</button></p>
+<HR>
+<button type="submit" value="all_friends" name="all_friends">Find ALL Friends</button> 
+<button type="submit" value="birthday_friends" name="birthday_friends">BIRTHDAY Friends</button>&nbsp;
+<label>&emsp;</label> 
+<input placeholder="Search" type="textfield" name="search" onkeypress="return event.keyCode!=13"/>
+<button type="submit" value="search_button" name="search_button">SEARCH</button>  
+<HR>
+<BR>
+</form>
+{% if message_ok %}
+		<p><strong>{{ message_ok }}</strong></p>
+{% endif %}
+
+{% if error_message %}
+	<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+{% if friend_list %}
+	<ul>
+	{% for f in friend_list %}
+		<li> <a href="{% url 'detail' f.id_fb %}">{{ f.name }}</a>
+	{% endfor %}
+	</ul>
+{% else %}
+	{% if reload_all_friends %}
+		<p><strong> You have to reload ALL your friends to find Birthday Friends </strong></p>
+
+	{% else %}
+		{% ifequal birthday_list_message "You don't have friends on birthday" %}
+			<p><strong> You don't have friends on birthday </strong></p>
+		{% else %}
+			<p><strong> You don't have friends OR you don't have load ALL your friends </strong></p>
+		{% endifequal %}
+	{% endif %}
+{% endif %}
+
+{% if friend_list %}
+	{% if birthday_list_message %}
+	<form action="{% url 'list' %}" method="post">
+    	{% csrf_token %}
+	<button type="submit" value="congratulate_all" name="congratulate_all">CONGRATULATE ALL</button> 
+	</form>
+	{% endif %}
+{% endif %}
+
+

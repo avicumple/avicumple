@@ -1,0 +1,16 @@
+	{% load url from future %}
+<h1> <p style="color:white;background-color:blue;text-align:center">Log Into AviCumple Facebook APP </p></h1>
+<HR>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+<label>User</label> :
+<input type="textfield" name="user"/><BR> 
+<label>Password</a> :
+<input type="password" name="pass"/><BR> 
+<input style="background-color:green;font-size: larger;color:black" type="submit" value="Enter" /><BR><BR>
+</form>
+<HR>
+<a href="{% url 'register' %}" target="_self"><input style="background-color:00ffcc;font-size: larger;color:black" type="button" name="Register" value="Register"></a>

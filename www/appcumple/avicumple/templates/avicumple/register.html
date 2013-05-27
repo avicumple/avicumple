@@ -1,0 +1,25 @@
+	{% load url from future %}
+<h1><p style="color:white;background-color:blue;text-align:center"> Register Into AviCumple Facebook APP </p></h1>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<HR>
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+	{% if show_authorize_message %}
+		<BR><a href="{{authurl}}">Authorize Facebook (It´s necesary to push it FIRST OF ALL)</a><BR><BR>
+	{% endif %}
+	<label>User</label> :
+	<input type="textfield" name="user"/><BR> 
+	<label>Password</a> :
+	<input type="password" name="pass"/><BR> 
+	<input style="background-color:00ffcc;font-size: larger;color:black" type="submit" value="Register" />
+</form>
+<HR>
+<form action="{% url 'login' %}" method="post">
+	    {% csrf_token %}
+	<button type="submit" value="back" name="back">BACK</button>
+</form>
+
+
+    
