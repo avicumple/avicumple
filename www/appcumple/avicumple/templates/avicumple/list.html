@@ -14,6 +14,8 @@
 </form>
 {% if message_ok %}
 		<p><strong>{{ message_ok }}</strong></p>
+		{% load static %}
+		<img src="{% static "birthday_images/"|add:birthday_image %}">
 {% endif %}
 
 {% if error_message %}

@@ -1,5 +1,10 @@
 # Django settings for appcumple project.
 
+import environ
+
+ROOT_DIR = environ.Path(__file__) - 2
+AVICUMPLE_DIR = ROOT_DIR.path('avicumple')
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -12,7 +17,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/raul/Escritorio/django/www/appcumple/appcumple.db', # Or path to database file if using sqlite3.
+        'NAME': '/django/www/appcumple/appcumple.db', # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -155,3 +160,11 @@ LOGGING = {
         },
     }
 }
+
+
+# MOCK de los servicios de Facebook
+############
+
+env = environ.Env()
+
+MOCK_FACEBOOK_SERVICES = env.bool('MOCK_FACEBOOK_SERVICES', default=True)

@@ -9,8 +9,10 @@ import urlparse
 from datetime import datetime
 from avicumple.filtro import filtro
 
+from django.conf import settings
+
 APP_ID = '124412807757420'
-APP_SECRET = '05869394e6909522e30bc623a7b48eb5'
+APP_SECRET = '1ec90cf6e0bdec94f8e5a7f6969af28b'
 ENDPOINT = 'graph.facebook.com'
 REDIRECT_URI = 'http://localhost:8000/'
  
@@ -52,7 +54,7 @@ def download_image(url,id_fb):
 
 def apply_filter(id_fb):
     url="/tmp/"+str(id_fb)+".jpg"
-    url2="/tmp/"+str(id_fb)+"2.jpg"
+    url2=str(settings.AVICUMPLE_DIR) + "/static/birthday_images/"+str(id_fb)+"2.jpg"
     filtro(url,url2)
 
 def upload_congratulation(message,id_fb,ACCESS_TOKEN):
