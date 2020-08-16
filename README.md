@@ -1,14 +1,23 @@
 ![Python 2.7](https://img.shields.io/badge/Python-2.7-blue.svg)
 ![Django 1.5](https://img.shields.io/badge/Django-1.5-blue.svg)
 
-# AVICUMPLE (2012) - deprecated
+# AVICUMPLE (2013) - deprecated
 Gestor para **felicitar los cumpleaños de los amigos de Facebook** creando una publicación con:
 - `Mensaje de felicitacion`: "Feliz cumpleaños"
 - `Foto personalizada`. Se utiliza la foto de perfil del amigo y se aplica un filtro color sepia junto con un mensaje "HAPPY BIRTHDAY"
 
-Esta app se creó como práctica de una asignatura de carrera en el año 2012, por lo que muchas de sus funcionalidades no funcionan debido a que la mayor parte de las APIs externas que se usaban han sido deprecated.
+Esta app se creó como práctica de una asignatura de carrera en el año 2013, por lo que muchas de sus funcionalidades no funcionan debido a que la mayor parte de las APIs externas que se usaban han sido deprecated.
 
-### Motivos para incorpor este código a Github
+### Capturas de pantalla
+En la carpeta "capturas de pantalla" se encuentran algunos ejemplos de la aplicación como:
+
+##### Pantalla principal
+<img src="/capturas_de_pantalla/principal_con_amigos.PNG" width="100%">
+
+##### Ejemplo de una felicitacion de cumpleaños a nuestro amigo Julio Iglesias en Facebook con una foto de su perfil personalizada con un color sepia
+<img src="/capturas_de_pantalla/ejemplo_publicacion_facebook.PNG" width="30%">
+
+### Motivos para incorporar este código a Github
 - **Aprender**. Todos tenemos unos inicios y la mejor forma de ver como hemos mejorado a lo largo del tiempo es mirar hacia atrás de vez en cuando.
 - **Sentimientos**. La nostalgia nos invade, y más con fantásticos compañeros de carrera.
 
@@ -24,7 +33,7 @@ Esta aplicación fue creada por unos estudiantes en sus primeros años de carrer
 - Estabilidad. El propósito de esta aplicación no fue ser desplegada en un entorno de producción por lo que su estabilidad es cuestionable.
 - Deprecations. Desde su creación esta aplicación no ha sido evolucionada más por lo que algunos de sus componentes puede que no funcionen como en el momento de su creación.
 - Facebook API. 
-  - En el año 2012 los permisos como "leer amigos" o "crear publicación" que son los que utiliza esta app podían solicitarse sin ningún problema. A día de hoy, Facebook requiere que si se necesitan esos permisos la app tiene que se revisada por ellos.
+  - En el año 2013 los permisos como "leer amigos" o "crear publicación" que son los que utiliza esta app podían solicitarse sin ningún problema. A día de hoy, Facebook requiere que si se necesitan esos permisos la app tiene que se revisada por ellos.
   - Por este y otros motivos no se ha actualizado el API de Facebook a la última versión disponible y se ha habilitado el `modo MOCK` de esta app para poder ver y utilizar la interfaz.
 
 ### Uso
